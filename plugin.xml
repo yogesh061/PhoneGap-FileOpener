@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.ya.cordova.plugins.fileopener"
+    version="1.0.0">
+
+    <engines>
+    	<engine name="cordova" version=">=3.0.0" />
+	</engines>
+	<name>File Opener</name>
+  	<author>Yogesh Agarwal</author>
+
+  	<description>
+    	This plugin allows you to open various files in Android.
+  	</description>
+	<license>MIT</license>
+
+	<asset src="www/fileopener.js" target="fileopener.js" />
+
+	<js-module src="www/fileopener.js" name="FileOpener">
+    	<clobbers target="FileOpener" />
+	</js-module>
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="FileOpener" >
+				 <param name="android-package" value="com.ya.cordova.plugins.fileopener"/>
+			</feature>
+		</config-file>	
+		<source-file src="src/android/com/ya/cordova/plugins/fileopener/FileOpener.java"
+                target-dir="src/com/ya/cordova/plugins/fileopener" />
+	</platform>	
+</plugin>
